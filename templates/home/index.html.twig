@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Quiz{% endblock %}
 
 {% block body %}
+    <div class="jumbotron mt-3">
+        <h1 class="lead">Sélection du quiz</h1>
+        <hr class="my-4">
+        {% for quizz in quiz %}
+            <a href="{{ quizz.id }}"><li>{{ quizz.name }}</li></a>
+        {% endfor %}
 
+    </div>
 {% endblock %}
