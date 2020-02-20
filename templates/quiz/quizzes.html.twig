@@ -6,9 +6,11 @@
     <div class="jumbotron mt-3">
         <h1 class="lead">Sélection du quiz</h1>
         <hr class="my-4">
-        {% for quizz in quiz %}
-            <a href="{{ quizz.id }}"><li>{{ quizz.name }}</li></a>
+        {% for quiz in quizzes %}
+            <a href="{{ path('quiz_candidat', {
+                quizId: quiz.id
+            })}}"><li>{{ quiz.name }}</li></a>
         {% endfor %}
-
     </div>
+
 {% endblock %}

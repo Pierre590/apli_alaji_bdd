@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choisir un candidat{% endblock %}
+
+{% block body %}
+    <h1>{{ quiz.name}}</h1>
+    <h2><p class="text-muted">Selectionner un candidat</p></h2>
+    {% for student in quiz.students %}
+        <a href="{{ path('quiz_candidat_form', {
+            quizId: quiz.id,
+            studentId: student.id,
+        })}}"><li>{{ student.fullname }}</li></a>
+    {% endfor %}
+{% endblock %}
