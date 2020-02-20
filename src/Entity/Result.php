@@ -38,6 +38,11 @@ class Result
      */
     private $student;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $aquis = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Result
     public function setStudent(?Student $student): self
     {
         $this->student = $student;
+
+        return $this;
+    }
+
+    public function getAquis(): ?bool
+    {
+        return $this->aquis;
+    }
+
+    public function setAquis(bool $aquis): self
+    {
+        $this->aquis = $aquis;
 
         return $this;
     }

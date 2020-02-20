@@ -68,6 +68,12 @@ class QuizController extends AbstractController
                     ]);
                 $interview = (int) $request->request->get('criterias')[$criteria->getId()];
                 $result->setInterview($interview === 1 ? 1 : 0);
+
+                $test = $result->getTest();
+
+                $aquis = $interview * $criteria->getCoeffInterview() + $test * $criteria->getCoeffTest();
+
+                $result->setAquis($aquis > 0.5);
             }
 
             $entityManager->flush();

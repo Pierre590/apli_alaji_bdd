@@ -34,6 +34,16 @@ class Criteria
      */
     private $results;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $coeff_test;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $coeff_interview;
+
     public function __construct()
     {
         $this->results = new ArrayCollection();
@@ -95,6 +105,30 @@ class Criteria
                 $result->setCriteria(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCoeffTest(): ?float
+    {
+        return $this->coeff_test;
+    }
+
+    public function setCoeffTest(float $coeff_test): self
+    {
+        $this->coeff_test = $coeff_test;
+
+        return $this;
+    }
+
+    public function getCoeffInterview(): ?float
+    {
+        return $this->coeff_interview;
+    }
+
+    public function setCoeffInterview(float $coeff_interview): self
+    {
+        $this->coeff_interview = $coeff_interview;
 
         return $this;
     }
