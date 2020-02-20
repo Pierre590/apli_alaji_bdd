@@ -4,7 +4,8 @@
 
 {% block body %}
     <div class="jumbotron mt-3">
-        <h1 class="lead">Sélection du quiz</h1>
+        <p class="lead"><h1>Sélection du quiz</h1></p>
+
         <hr class="my-4">
         {% for quiz in quizzes %}
             <a href="{{ path('quiz_candidat', {

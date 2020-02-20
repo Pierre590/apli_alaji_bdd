@@ -31,6 +31,11 @@
         </tbody>
     </form>
 </table>
-
+<button type="button" class="btn btn-warning" style="float:right;">
+    <a href="{{ path('quiz_candidat_results', {
+        quizId: quiz.id,
+        studentId: student.id,
+    })}}">Voir les résultats</a>
+</button>
 
 {% endblock %}
