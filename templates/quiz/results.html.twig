@@ -3,9 +3,10 @@
 {% block title %}Résultats{% endblock %}
 
 {% block body %}
-    <h1>{{ quizz.name }}</h1>
-    <h2><p class="text-muted">{{ students.fullname }}</p></h2>
-    <table class="table table-dark mt-4 text-center" id="oral" >
+    <h1>{{ quiz.name }}</h1>
+    <h2><p class="text-muted">{{ student.fullname }}</p></h2>.
+
+    <table class="table table-dark mt-4 text-center">
                 <thead>
                     <tr>
                         <th scope="col">Critères</th>
@@ -17,39 +18,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-primary">
-                        <th scope="row">Critère 1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="table-primary">
-                        <th scope="row">Critère 2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="table-primary">
-                        <th scope="row">Critère 3</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="table-primary">
-                        <th scope="row">Critère 4</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {% for result in results %}
+                        <tr class="table-primary">
+                            <th scope="row"></th>
+                            <td>{{result.test}}</td>
+                            <td></td>
+                            <td>{{result.interview}}</td>
+                            <td></td>
+                            <td>{{result.aquis}}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-
 {% endblock %}

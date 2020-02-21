@@ -95,17 +95,30 @@ class QuizController extends AbstractController
     public function result($quizId, $studentId)
     {
 
-        $students = $this->getDoctrine()
+        $student = $this->getDoctrine()
             ->getRepository(Student::class)
             ->find($studentId);
 
-        $quizz = $this->getDoctrine()
+        $quiz = $this->getDoctrine()
             ->getRepository(Quiz::class)
             ->find($quizId);
 
+        $results = $this->getDoctrine()
+            ->getRepository(Result::class)
+            ->createQueryBuilder('r')
+            ->where('r.student = :student')
+            ->andWhere('r.criteria IN (:criteria)')
+            ->setParameter('student', $studentId)
+            ->setParameter('criteria', $quiz->getCriterias())
+            ->getQuery()
+            ->getResult();
+
+
         return $this->render('quiz/results.html.twig', [
-             'students' => $students,
-             'quizz' => $quizz,
+             'student' => $student,
+             'quiz' => $quiz,
+             'results' => $results,
+
         ]);
     }
 
