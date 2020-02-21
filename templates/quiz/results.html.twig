@@ -3,6 +3,53 @@
 {% block title %}Résultats{% endblock %}
 
 {% block body %}
-bhfzzihfzh
+    <h1>{{ quizz.name }}</h1>
+    <h2><p class="text-muted">{{ students.fullname }}</p></h2>
+    <table class="table table-dark mt-4 text-center" id="oral" >
+                <thead>
+                    <tr>
+                        <th scope="col">Critères</th>
+                        <th scope="col">Test écrit</th>
+                        <th scope="col">Moyenne écrit</th>
+                        <th scope="col">Test oral</th>
+                        <th scope="col">Moyenne oral</th>
+                        <th scope="col">Résultat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-primary">
+                        <th scope="row">Critère 1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-primary">
+                        <th scope="row">Critère 2</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-primary">
+                        <th scope="row">Critère 3</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-primary">
+                        <th scope="row">Critère 4</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
 
 {% endblock %}

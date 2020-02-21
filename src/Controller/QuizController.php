@@ -92,14 +92,20 @@ class QuizController extends AbstractController
      * @Route("/{quizId}/candidat/{studentId}/results", name="quiz_candidat_results")
      */
 
-    public function result()
+    public function result($quizId, $studentId)
     {
-        $results = $this->getDoctrine()
-             ->getRepository(Result::class)
-             ->find();
+
+        $students = $this->getDoctrine()
+            ->getRepository(Student::class)
+            ->find($studentId);
+
+        $quizz = $this->getDoctrine()
+            ->getRepository(Quiz::class)
+            ->find($quizId);
 
         return $this->render('quiz/results.html.twig', [
-             'results' => $results,
+             'students' => $students,
+             'quizz' => $quizz,
         ]);
     }
 
